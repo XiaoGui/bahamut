@@ -1,10 +1,7 @@
 ﻿#pragma strict
 
-var hp:int=100;
-function Start () {
+var hp_ui:GameObject;
 
-}
-
-function Update () {
-
+function LostHP (amount:int) {
+	hp_ui.SendMessage("UI_LostHP", amount);
 }
