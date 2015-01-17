@@ -6,16 +6,27 @@ var hp : int = 100;
 var isAttacking : boolean = false;
 var opponent : GameObject;
 var award : int = 0 ;
+private var anim : Animator;
 
+
+function Start(){
+
+	anim = GetComponentInChildren(Animator);
+				
+				}
+				
 function Update(){
 	//rigidbody2D.velocity = new Vector2(speed, rigidbody2D.velocity.y);
 	//transform.position.x += speed;
 	if(hp<=0){
-	if(gameObject.tag=="Enemymon"){
-		GameObject.Find("Energy").SendMessage("AddEnergy", award);
-	}
-		Destroy(gameObject);
-	}
+	//if(gameObject.tag=="Enemymon")
+	//{
+		
+		//GameObject.Find("Energy").SendMessage("AddEnergy", award);
+	//}
+		//Destroy(gameObject);
+		anim.SetTrigger("dead");
+			 }
 	else{
 		if(opponent==null)
 			isAttacking=false;
@@ -26,8 +37,14 @@ function Update(){
 			rigidbody2D.velocity = new Vector2(speed, 0);
 		else
 			rigidbody2D.velocity = new Vector2(0, 0);
+			
+		if(anim.GetBool("attack")!= isAttacking)
+			{
+				anim.SetBool("attack", isAttacking);	
+			}
+			
 		}
-}
+				  }
 
 function Damage (atk : int){
 	hp-=atk;
