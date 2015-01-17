@@ -15,9 +15,11 @@ function Update() {
 	if(hp<=0){
 		if(gameObject.tag=="EnemyTower")
 			PlayerPrefs.SetString("ResultMessage", "Congratulations! You Win!");
-		else if(gameObject.tag=="MyTower"
+		else if(gameObject.tag=="MyTower")
 			PlayerPrefs.SetString("ResultMessage", "Sorry! You Lose!");
+		
 		Application.LoadLevel(3);
+	
 	Destroy(gameObject);
 	}
 }
