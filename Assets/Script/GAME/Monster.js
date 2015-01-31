@@ -69,3 +69,4 @@ function OnTriggerStay2D (other:Collider2D){
 		opponent=other.gameObject;
 	}
 }
+

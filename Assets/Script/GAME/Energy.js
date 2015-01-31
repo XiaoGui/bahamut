@@ -17,6 +17,7 @@ function AddEnergy (amount:int){
 		}
 		
 }
+
 function SpendEnergy (amount:int) {
 	if(nowEnergy-amount>=0){
 		nowEnergy-=amount;

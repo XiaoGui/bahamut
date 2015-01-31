@@ -13,11 +13,14 @@ function Damage (atk : int){
 }
 function Update() {
 	if(hp<=0){
-		if(gameObject.tag=="EnemyTower")
+		if(gameObject.tag=="EnemyTower"){
+			PlayerPrefs.SetInt("ResultMusic",1);
 			PlayerPrefs.SetString("ResultMessage", "Congratulations! You Win!");
-		else if(gameObject.tag=="MyTower")
+}		
+		else if(gameObject.tag=="MyTower"){
+			PlayerPrefs.SetInt("ResultMusic",0);
 			PlayerPrefs.SetString("ResultMessage", "Sorry! You Lose!");
-		
+}		
 		Application.LoadLevel(3);
 	
 	Destroy(gameObject);
